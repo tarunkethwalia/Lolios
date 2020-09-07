@@ -9,7 +9,7 @@ const firstpage = () => {
         <div className="firstpage">
             <div className="content1">
                 <div className="headerfp">
-                    <img src={Logo} className="logo1" />
+                    <img src={Logo} className="logo1" alt='Logo' />
                     <p>Lolios</p>
                 </div>
                     <p className="heading1">
@@ -27,7 +27,7 @@ const firstpage = () => {
                     </div>
             </div>
             <div className="image">
-                <img src={Lol} className="lolimg" />
+                <img src={Lol} className="lolimg" alt='mascot' />
             </div>
         </div>
 
