@@ -3,7 +3,6 @@ import './firstpage.css';
 import Logo from '../images/Lolios.png';
 import Lol from '../images/lolimg.png';
 
-
 const firstpage = () => {
     return (
         <div className="firstpage">
