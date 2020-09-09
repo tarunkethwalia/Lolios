@@ -5,7 +5,7 @@
 .content1{width: 50%;height: 100%;display: flex;flex-direction: column;font-family: 'Nunito Sans', sans-serif;color: #646464;}
 .headerfp{width: 100%;height: 10%;display: flex; align-items: center;}
 .headerfp p{font-family: 'Architects Daughter', cursive;color: #A171AA;font-size: 30px; margin: 0 10px;}
-.logo1{width: 4.7%;height: 56.4%; margin-left: 20px;}
+.logo1{width: 5%;height: 55%; margin-left: 25px;}
 .heading1{font-family: 'Architects Daughter', cursive;color: #727272;font-size: 50px;margin: 4% 0% 0%12%;}
 .subhead{color: #646464;font-family: 'Nunito Sans', sans-serif;margin:3% 12%;font-size: 18px;width: 68%;}
 .nameinput{width: 43%;margin:3% 12%;padding:5px 15px;font-size: 18px;border: 1.8px solid #878788;font-weight: normal;}
