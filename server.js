@@ -4,7 +4,6 @@ const socketio = require('socket.io');
 const router = require('./router');
 const {addUser, removeUser, getUser, getUsersInRoom} = require('./utils/socketUsers');
 const cors = require('cors');
-const { use } = require('./router');
 
 const Port = process.env.Port || 5000;
 const app = express();
