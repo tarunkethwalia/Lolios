@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 let socket;
 
 const Second = ({history,location}) => {
-    const URL = 'localhost:5000';
+    const URL = 'https://goofy-heisenberg-d7d5ce.netlify.app';
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
