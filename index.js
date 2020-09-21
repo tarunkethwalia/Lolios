@@ -32,6 +32,7 @@ io.on('connection', (socket) => {
         const user = getUser(socket.id);
 
         // console.log(user, message);
+        // console.log('Test');
         io.to(user.room).emit('message', {user: user.name, text: message});
 
         callback();
