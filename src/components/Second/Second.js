@@ -8,7 +8,8 @@ import io from 'socket.io-client';
 let socket;
 
 const Second = ({history,location}) => {
-    const URL = 'https://goofy-heisenberg-d7d5ce.netlify.app';
+    // const URL = 'https://goofy-heisenberg-d7d5ce.netlify.app';
+    const URL = 'https://lolios-api.herokuapp.com';
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
