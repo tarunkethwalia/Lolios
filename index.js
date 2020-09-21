@@ -5,7 +5,7 @@ const router = require('./router');
 const {addUser, removeUser, getUser, getUsersInRoom} = require('./utils/socketUsers');
 const cors = require('cors');
 
-const Port = process.env.Port || 5000;
+const Port = process.env.PORT || 5000;
 const app = express();
 const server = http.createServer(app);
 
