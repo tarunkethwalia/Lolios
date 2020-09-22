@@ -4,21 +4,21 @@ import Logo from '../images/Lolios.png';
 import girl from '../images/girl.png';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 let socket;
 
 const Second = ({history,location}) => {
-    // const URL = 'https://goofy-heisenberg-d7d5ce.netlify.app';
+    // const URL = 'localhost:5000';
     const URL = 'https://lolios-api.herokuapp.com';
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const [usersList, setUsers] = useState([]);
 
     useEffect(() => {
         const {name , room} = queryString.parse(location.search);
-        const element = document.getElementById("messageDiv");
-        element.scrollTop = element.scrollHeight;
 
         setName(name);
         setRoom(room);
@@ -35,10 +35,15 @@ const Second = ({history,location}) => {
 
     useEffect(() => {
         socket.on('message', (message) => {
-            console.log(message);
             setMessages([...messages, message]);
         });
     }, [messages]);
+
+    useEffect(() => {
+        socket.on('roomData', ({users}) => {
+            setUsers(users);
+        });
+    }, [usersList]);
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -64,20 +69,21 @@ const Second = ({history,location}) => {
             <div className="chatside">
                 {/*Fix this div*/}
                 <div className="messages" id='messageDiv'>
-                    {/*<p className="sender1">Hey there..</p>*/}
-                    {
-                        messages && messages.map(message => message.user === name.toLowerCase() ?
-                            (
-                                <div className='authorDiv'>
-                                    <p>{message.text}</p>
-                                </div>
-                            ) :
-                            (
-                                <div className='guestDiv'>
-                                    <p><span className='guestName'>{message.user}</span>{' : ' + message.text}</p>
-                                </div>
-                            ))
-                    }
+                    <ScrollToBottom>
+                        {
+                            messages && messages.map(message => message.user === name.toLowerCase() ?
+                                (
+                                    <div className='authorDiv'>
+                                        <p>{message.text}</p>
+                                    </div>
+                                ) :
+                                (
+                                    <div className='guestDiv'>
+                                        <p><span className='guestName'>{message.user.charAt(0).toUpperCase()+message.user.slice(1)}</span>{' : ' + message.text}</p>
+                                    </div>
+                                ))
+                        }
+                    </ScrollToBottom>
                 </div>
                 <div className="chatarea">
                     <input type="text" id="typesomething" placeholder="Type your message.." maxLength="100" onChange={e => setMessage(e.target.value)} onKeyPress={e => e.key === 'Enter' ? sendMessage(e) : null} value={message} />
@@ -87,11 +93,9 @@ const Second = ({history,location}) => {
             <div className="memberside">
                 <div className="member">Members</div>
                 <div className="membersname">
-                    <p>Silly</p>
-                    <p>Sassy</p>
-                    <p>Akansha</p>
-                    <p>Chris</p>
-                    <p>Rishav</p>
+                    {
+                        usersList.map(userInfo => (<p key={userInfo.id}>{userInfo.name.charAt(0).toUpperCase()+userInfo.name.slice(1)}</p>))
+                    }
                 </div>
                 <div className="link">Group Link</div>
                 <div className="linkside">
