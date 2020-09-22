@@ -10,6 +10,8 @@ let socket;
 
 const Second = ({history,location}) => {
     // const URL = 'localhost:5000';
+    // const RedirectURL = 'http://localhost:3000';
+    const RedirectURL = 'https://stoic-banach-dc8370.netlify.app/';
     const URL = 'https://lolios-api.herokuapp.com';
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
@@ -100,7 +102,7 @@ const Second = ({history,location}) => {
                 <div className="link">Group Link</div>
                 <div className="linkside">
                     <div className="LINK">{room}</div>
-                    <div className="leaveroom" onClick={() => history.push('/')}>Leave Room</div>
+                    <div className="leaveroom" onClick={() => window.location.href = RedirectURL}>Leave Room</div>
                 </div>
             </div>
         </div>
