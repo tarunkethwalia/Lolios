@@ -19,7 +19,7 @@ const Home = ({history}) => {
     }
     return (
         <div className="firstpage">
-            <div className="content1">~
+            <div className="content1">
                 <div className="headerfp">
                     <img src={Logo} className="logo1" alt='Logo' />
                     <p>Lolios</p>
